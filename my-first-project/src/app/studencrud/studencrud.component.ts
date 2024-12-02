@@ -45,9 +45,7 @@ export class StudencrudComponent {
         console.log(resultData);
         alert("Employee Registered Successfully")
         this.getAllStudent();
-      //  this.name = '';
-      //  this.address = '';
-      //  this.mobile  = 0;
+    
     });
   }
   setUpdate(data: any) 
