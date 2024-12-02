@@ -3,9 +3,9 @@ const bodyParser = require('body-parser')
 const server = express()
 const mysql = require("mysql");
 server.use(bodyParser.json());
-
+const cors = require('cors');
 //Establish the database connection
-
+server.use(cors());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
