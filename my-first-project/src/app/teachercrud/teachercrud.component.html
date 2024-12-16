@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h1>Teachers Table</h1>
+    <table class="table">
+      <thead>
+        <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Teachers Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Phone</th>
+          <th scope="col">email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let TeacherItem of TeacherArray">
+          <td>{{TeacherItem.id }}</td>
+          <td>{{TeacherItem.name }}</td>
+          <td>{{TeacherItem.subject }}</td>
+          <td>{{TeacherItem.phone }}</td>
+          <td>{{TeacherItem.email }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>

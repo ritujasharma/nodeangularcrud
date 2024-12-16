@@ -108,3 +108,39 @@ server.put("/api/student/update/:id", (req, res) => {
     });
   });
 
+// new custom teacher table for practice
+//   CREATE TABLE teacher (
+//     id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for each teacher
+//     name VARCHAR(100) NOT NULL,        -- Teacher's name
+//     email VARCHAR(150) UNIQUE,         -- Teacher's email address
+//     phone VARCHAR(15),                 -- Teacher's phone number
+//     subject VARCHAR(100)               -- Teacher's subject specialization
+// );
+// http://localhost:8085/api/teacher/add
+server.post("/api/teacher/add", (req, res) => {
+  let details = {
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    subject: req.body.subject,
+  };
+  let sql = "INSERT INTO teacher SET ?";
+  db.query(sql, details, (error) => {
+    if (error) {
+      res.send({ status: false, message: "Teacher created Failed" });
+    } else {
+      res.send({ status: true, message: "Teacher created successfully" });
+    }
+  });
+});
+
+server.get("/api/teacher", (req, res) => {
+  var sql = "SELECT * FROM teacher";
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
